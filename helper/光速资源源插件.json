@@ -1,0 +1,14 @@
+{
+  "protocolVersion": 1,
+  "pluginId": "cms.guangsu-resources",
+  "version": "1.0.0",
+  "displayName": "光速｜资源",
+  "description": "来自光速资源 Python 材料中公开接口的 CMS JSON 视频源，支持电影、电视剧、动漫、短剧、综艺和体育分类。仅使用直接 HLS/MP4 线路；电影、伦理片和预告片分类按单片展示，独立记录片分类保留节目和分集展示。",
+  "adapter": "cms_json",
+  "endpoint": "https://api.guangsuapi.com/api.php/provide/vod/",
+  "movieCategoryIds": ["1", "25", "32"],
+  "excludedCategoryIds": [],
+  "headers": {
+    "User-Agent": "Mozilla/5.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "protocolVersion": 1,
+  "pluginId": "cms.movie-paradise",
+  "version": "1.0.0",
+  "displayName": "电影｜天堂",
+  "description": "来自 Ubox 源配置的 CMS JSON 视频源，支持电影、连续剧和动漫分类。",
+  "adapter": "cms_json",
+  "endpoint": "http://caiji.dyttzyapi.com/api.php/provide/vod/from/dyttm3u8/at/json/",
+  "movieCategoryIds": ["1"],
+  "headers": { "User-Agent": "Mozilla/5.0" }
+}

@@ -1,0 +1,14 @@
+{
+  "protocolVersion": 1,
+  "pluginId": "cms.huya-resources",
+  "version": "1.0.0",
+  "displayName": "虎牙｜资源",
+  "description": "来自 Ubox 源配置的 CMS JSON 视频源，包含电视剧、动漫、短剧、电影和综艺。仅使用直接 HLS/MP4 线路；短剧全集视频不会拆分成虚拟单集。",
+  "adapter": "cms_json",
+  "endpoint": "https://www.huyaapi.com/api.php/provide/vod/",
+  "movieCategoryIds": ["2", "8", "31"],
+  "excludedCategoryIds": [],
+  "headers": {
+    "User-Agent": "Mozilla/5.0"
+  }
+}

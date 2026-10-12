@@ -1,0 +1,14 @@
+{
+  "protocolVersion": 1,
+  "pluginId": "cms.modu-resources",
+  "version": "1.0.0",
+  "displayName": "魔都｜资源",
+  "description": "来自 Ubox 源配置的 CMS JSON 视频源，支持电影、动漫、连续剧、短剧、综艺和体育分类。仅使用直接 HLS/MP4 线路；电影和独立动漫电影分类按单片展示。",
+  "adapter": "cms_json",
+  "endpoint": "https://www.mdzyapi.com/api.php/provide/vod/at/json",
+  "movieCategoryIds": ["5", "7"],
+  "excludedCategoryIds": [],
+  "headers": {
+    "User-Agent": "Mozilla/5.0"
+  }
+}

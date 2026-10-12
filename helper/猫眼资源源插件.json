@@ -1,0 +1,14 @@
+{
+  "protocolVersion": 1,
+  "pluginId": "cms.maoyan-resources",
+  "version": "1.0.0",
+  "displayName": "猫眼｜资源",
+  "description": "来自 Ubox 源配置的 CMS JSON 视频源，支持电影、连续剧、动漫、短剧、综艺和体育分类。仅使用直接 HLS/MP4 线路；电影及其纪录片、动画片子分类和独立伦理片分类按单片展示。",
+  "adapter": "cms_json",
+  "endpoint": "https://api.maoyanapi.top/api.php/provide/vod",
+  "movieCategoryIds": ["1", "5"],
+  "excludedCategoryIds": [],
+  "headers": {
+    "User-Agent": "Mozilla/5.0"
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "manifestVersion": 1,
+  "id": "video-metadata.hongguo-short-drama",
+  "name": "红果短剧元数据",
+  "type": "video_metadata",
+  "version": "1.3.0",
+  "author": "cyinsh666",
+  "description": "通过红果短剧官网网页内部 Loader，为网盘短剧提供节目元数据。该接口不是正式开放 API，可能随上游改版失效。",
+  "defaultEnabled": false,
+  "allowedDomains": [
+    "hongguoduanju.com"
+  ],
+  "supportedItemTypes": [
+    "tv"
+  ],
+  "contentProfiles": [
+    "short_drama"
+  ],
+  "providerSourceIds": [
+    "hongguo"
+  ],
+  "capabilities": [
+    "search",
+    "details",
+    "personDetails"
+  ],
+  "supportedFields": [
+    "posterUrl",
+    "overview",
+    "episodeCount",
+    "genres",
+    "people"
+  ],
+  "settings": [],
+  "operations": {
+    "search": {
+      "method": "GET",
+      "url": "https://hongguoduanju.com/search/{{input.query}}",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "__loader": "search_(keyword)/page",
+        "__ssrDirect": "true"
+      },
+      "bodyType": "none",
+      "connectTimeoutMs": 5000,
+      "readTimeoutMs": 15000
+    },
+    "details": {
+      "method": "GET",
+      "url": "https://hongguoduanju.com/detail",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "series_id": "{{input.providerItemId}}",
+        "__loader": "detail_page",
+        "__ssrDirect": "true"
+      },
+      "bodyType": "none",
+      "connectTimeoutMs": 5000,
+      "readTimeoutMs": 15000
+    },
+    "personDetails": {
+      "method": "GET",
+      "url": "https://hongguoduanju.com/character/{{input.providerPersonId}}",
+      "headers": {
+        "Accept": "application/json"
+      },
+      "query": {
+        "__loader": "character_(id)/page",
+        "__ssrDirect": "true"
+      },
+      "bodyType": "none",
+      "connectTimeoutMs": 5000,
+      "readTimeoutMs": 30000,
+      "maxResponseBytes": 16777216
+    }
+  },
+  "mappings": {
+    "search": {
+      "items": "searchList",
+      "providerItemId": [
+        "keyword",
+        "video_data.series_id"
+      ],
+      "title": [
+        "video_data.series_name",
+        "video_data.series_title"
+      ],
+      "posterUrl": [
+        "video_data.series_cover"
+      ],
+      "overview": [
+        "video_data.series_intro"
+      ],
+      "episodeCount": [
+        "video_data.episode_cnt"
+      ],
+      "genres": {
+        "items": [
+          "video_data.tags",
+          "video_data.category_list"
+        ],
+        "value": [
+          "$",
+          "name",
+          "tag_name",
+          "category_name",
+          "value"
+        ]
+      },
+      "people": {
+        "items": [
+          "video_data.celebrities"
+        ],
+        "providerPersonId": [
+          "celebrity_id",
+          "actor_id",
+          "person_id"
+        ],
+        "name": [
+          "celebrity_name",
+          "nick_name",
+          "nickname",
+          "user_name",
+          "name"
+        ],
+        "role": [
+          "role_name",
+          "role",
+          "sub_title",
+          "character_name"
+        ],
+        "profileUrl": [
+          "avatar",
+          "avatar_url",
+          "avatar_uri",
+          "user_avatar",
+          "head_url"
+        ]
+      }
+    },
+    "details": {
+      "item": "seriesDetail",
+      "providerItemId": [
+        "series_id"
+      ],
+      "title": [
+        "series_name",
+        "series_title"
+      ],
+      "posterUrl": [
+        "series_cover"
+      ],
+      "overview": [
+        "series_intro"
+      ],
+      "episodeCount": [
+        "episode_cnt"
+      ],
+      "genres": {
+        "items": [
+          "tags",
+          "category_list"
+        ],
+        "value": [
+          "$",
+          "name",
+          "tag_name",
+          "category_name",
+          "value"
+        ]
+      },
+      "people": {
+        "items": [
+          "celebrities"
+        ],
+        "providerPersonId": [
+          "celebrity_id",
+          "actor_id",
+          "person_id"
+        ],
+        "name": [
+          "celebrity_name",
+          "nick_name",
+          "nickname",
+          "user_name",
+          "name"
+        ],
+        "role": [
+          "role_name",
+          "role",
+          "sub_title",
+          "character_name"
+        ],
+        "profileUrl": [
+          "avatar",
+          "avatar_url",
+          "avatar_uri",
+          "user_avatar",
+          "head_url"
+        ]
+      }
+    },
+    "personDetails": {
+      "item": "userInfo",
+      "providerPersonId": [
+        "actor_id",
+        "person_id",
+        "user_id"
+      ],
+      "name": [
+        "user_name",
+        "name"
+      ],
+      "profileUrl": [
+        "user_avatar",
+        "avatar",
+        "avatar_url"
+      ],
+      "overview": [
+        "description",
+        "intro"
+      ],
+      "professionTags": {
+        "items": [
+          "subtitle_list"
+        ],
+        "value": [
+          "$",
+          "name",
+          "title",
+          "value"
+        ]
+      }
+    }
+  },
+  "matching": {
+    "fallbackStrategy": "first_candidate_episode_count_matches",
+    "episodeCountSources": [
+      "explicit_query",
+      "local_video_episodes"
+    ],
+    "episodeCountMatchMode": "any"
+  },
+  "limits": {
+    "maxResponseBytes": 2097152,
+    "maxSearchItems": 10,
+    "maxConcurrentRequests": 2,
+    "minRequestIntervalMs": 500
+  }
+}

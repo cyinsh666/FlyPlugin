@@ -1,0 +1,14 @@
+{
+  "protocolVersion": 1,
+  "pluginId": "cms.jinying-resources",
+  "version": "1.0.0",
+  "displayName": "金鹰｜资源",
+  "description": "来自 Ubox 源配置的 CMS JSON 视频源，支持电影、电视剧、动漫、短剧、综艺和体育分类。仅使用直接 HLS/MP4 线路；电影、伦理片和预告片按单片展示。",
+  "adapter": "cms_json",
+  "endpoint": "https://jinyingzy.com/provide/vod/from/jinyingm3u8/",
+  "movieCategoryIds": ["2", "8", "31"],
+  "excludedCategoryIds": [],
+  "headers": {
+    "User-Agent": "Mozilla/5.0"
+  }
+}
