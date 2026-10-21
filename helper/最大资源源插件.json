@@ -1,0 +1,14 @@
+{
+  "protocolVersion": 1,
+  "pluginId": "cms.zuida-resources",
+  "version": "1.0.0",
+  "displayName": "最大｜资源",
+  "description": "CMS JSON 视频源，支持电影、电视剧、动漫、短剧和综艺分类。支持实时搜索；列表保存摘要，详情、选集和播放按需加载，仅使用直接 HLS/MP4 线路。",
+  "adapter": "cms_json",
+  "endpoint": "http://zuidazy.me/api.php/provide/vod",
+  "movieCategoryIds": ["6", "7", "8", "9", "10", "11", "12", "20", "39", "51", "55", "56", "57", "58", "59", "62", "70", "71"],
+  "excludedCategoryIds": ["1", "2", "3", "4"],
+  "headers": {
+    "User-Agent": "Mozilla/5.0"
+  }
+}

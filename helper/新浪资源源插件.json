@@ -1,0 +1,14 @@
+{
+  "protocolVersion": 1,
+  "pluginId": "cms.xinlang-resources",
+  "version": "1.0.0",
+  "displayName": "新浪｜资源",
+  "description": "CMS JSON 视频源，支持电影、电视剧、动漫、短剧和综艺分类。支持实时搜索；列表保存摘要，详情、选集和播放按需加载，仅使用直接 HLS/MP4 线路。",
+  "adapter": "cms_json",
+  "endpoint": "https://api.xinlangapi.com/xinlangapi.php/provide/vod",
+  "movieCategoryIds": ["1", "22", "25"],
+  "excludedCategoryIds": [],
+  "headers": {
+    "User-Agent": "Mozilla/5.0"
+  }
+}
